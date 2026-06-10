@@ -7,6 +7,7 @@ from alembic import context
 
 from app.core.config import get_settings
 from app.infrastructure.database.session import Base
+import app.infrastructure.database.models  # noqa: F401
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
