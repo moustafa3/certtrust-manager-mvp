@@ -8,6 +8,10 @@ class Settings(BaseSettings):
     app_version: str = "0.1.0"
     environment: str = "local"
     api_key: str = "dev-secret-key"
+    database_url: str = (
+        "postgresql+psycopg://certtrust_user:certtrust_password"
+        "@localhost:5432/certtrust_db"
+    )
 
     model_config = SettingsConfigDict(
         env_file=".env",
