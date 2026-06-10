@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: certtrust_postgres
+    environment:
+      POSTGRES_DB: certtrust_db
+      POSTGRES_USER: certtrust_user
+      POSTGRES_PASSWORD: certtrust_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - certtrust_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  certtrust_postgres_data:
