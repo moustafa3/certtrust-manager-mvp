@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from app.api.v1.routes.certificates import router as certificates_router
 from app.api.v1.routes.health import router as health_router
 from app.core.config import get_settings
+from app.core.errors import register_exception_handlers
 from app.core.logging import configure_logging
 
 configure_logging()
@@ -16,6 +17,8 @@ app = FastAPI(
     description="API for simulated certificate lifecycle management.",
     version=settings.app_version,
 )
+
+register_exception_handlers(app)
 
 app.include_router(health_router, prefix="/api/v1")
 app.include_router(certificates_router, prefix="/api/v1")
