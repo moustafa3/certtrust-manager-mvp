@@ -2,6 +2,7 @@ import logging
 
 from fastapi import FastAPI
 
+from app.api.v1.routes.audit_logs import router as audit_logs_router
 from app.api.v1.routes.certificates import router as certificates_router
 from app.api.v1.routes.health import router as health_router
 from app.core.config import get_settings
@@ -22,6 +23,7 @@ register_exception_handlers(app)
 
 app.include_router(health_router, prefix="/api/v1")
 app.include_router(certificates_router, prefix="/api/v1")
+app.include_router(audit_logs_router, prefix="/api/v1")
 
 
 @app.on_event("startup")
